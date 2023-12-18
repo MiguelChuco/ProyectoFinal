@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio de Boxeo</title>
+    <style>
+        /* Tu estilo actual permanece sin cambios */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #555;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1em;
+            margin: 0 1em;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        form input {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* ... (resto de tu estilo) */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gimnasio de Boxeo</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'home' %}">Actividades</a>
+        <a href="{% url 'home' %}#tienda">Tienda</a>
+        <a href="{% url 'home' %}#contacto">Contacto</a>
+        <a href="{% url 'register' %}">Registro</a>
+        <a href="{% url 'login' %}">Acceso</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+            <a href="{% url 'agregar_actividad' %}">Añadir Actividad</a>
+            <a href="{% url 'agregar_producto' %}">Añadir Producto</a>
+        {% endif %}
+    </nav>
+
+    <section id="actividades">
+        <h2>Actividades</h2>
+        <p>Descubre nuestras emocionantes actividades de boxeo.</p>
+        <!-- Puedes agregar más contenido relacionado con las actividades aquí -->
+        {% if user.is_authenticated %}
+            <p>¡Bienvenido, {{ user.username }}!</p>
+        {% endif %}
+    </section>
+
+    <section id="tienda">
+        <h2>Tienda</h2>
+        <p>Explora nuestra tienda y descubre los productos de boxeo disponibles.</p>
+        <!-- Puedes agregar más contenido relacionado con la tienda aquí -->
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta? Contáctanos.</p>
+        <p href="telefono: "> telefono: <a href="999909701">999909701</a> </p>
+        <p href="correo: "> correo: <a href="pfifi14@hotmail.com">pfifi14@hotmail.com</a> </p>
+        <!-- Puedes agregar un formulario de contacto u otra información aquí -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Gimnasio de Boxeo</p>
+    </footer>
+
+</body>
+</html>

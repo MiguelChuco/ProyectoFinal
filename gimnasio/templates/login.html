@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso</title>
+    <!-- Agrega tus estilos y enlaces a archivos CSS aquí -->
+</head>
+<body>
+
+<section id="login">
+    <h2>Acceso</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required>
+        <input type="submit" value="Iniciar sesión">
+    </form>
+</section>
+
+<!-- Agrega tus scripts o enlaces a archivos JS aquí -->
+
+</body>
+</html>
